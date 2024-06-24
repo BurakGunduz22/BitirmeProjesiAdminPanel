@@ -237,7 +237,7 @@ const UserManagement: React.FC = () => {
                         rules={[{ required: true, message: 'Please select the role!' }]}
                     >
                         <Select>
-                            <Option value="0">Pending</Option>
+                            <Option value="0">Not Active</Option>
                             <Option value="1">User</Option>
                             <Option value="2">Blocked</Option>
                             <Option value="3">Admin</Option>
