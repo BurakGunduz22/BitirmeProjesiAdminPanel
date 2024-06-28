@@ -5,28 +5,40 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from './firebaseConfig';
 import './Login.css';
-
 const Login: React.FC = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    var userUID: string;
 
     const onFinish = async (values: any) => {
         setLoading(true);
         try {
             // Authenticate user
             const userCredential = await signInWithEmailAndPassword(auth, values.username, values.password);
-            userUID = userCredential.user.uid;
-            navigate('/admin');
+            const userUID = userCredential.user.uid;
+
             // Get user document from Firestore
+            const userDoc = await getDoc(doc(db, 'users', userUID));
+            if (userDoc.exists()) {
+                const userData = userDoc.data();
+                const userRole = userData.role; // Assuming role is stored in 'role' field
+
+                // Check if user has role 3
+                if (userRole === 3) {
+                    navigate('/admin', { replace: true });
+                } else {
+                    message.error('Unauthorized access');
+                }
+            } else {
+                message.error('User document not found');
+            }
         } catch (error) {
             message.error('Failed to login');
             console.error(error);
-        }
-        finally {
+        } finally {
             setLoading(false);
         }
     };
+
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
     };

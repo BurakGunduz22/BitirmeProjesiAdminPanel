@@ -219,7 +219,7 @@ const CategoryManagement: React.FC = () => {
             render: (text: any, record: any) => (
                 <div className="button-container">
                     <Button type="default" icon={<EditOutlined />} onClick={() => handleEditCategory(record.id)}>Edit</Button>
-                    <Button type="default" icon={<EyeOutlined />} onClick={() => handleViewSubcategories(record.id)}>View Subcategories</Button>
+                    <Button type="dashed" icon={<EyeOutlined />} onClick={() => handleViewSubcategories(record.id)}>View Subcategories</Button>
                     <Button type="default" danger icon={<DeleteOutlined />} onClick={() => handleDeleteCategory(record.id)}>Delete</Button>
                 </div>
             ),
@@ -246,7 +246,17 @@ const CategoryManagement: React.FC = () => {
 
     return (
         <>
+            <div style={{
+                height: '60px',
+                backgroundColor: '#f8f9fa',
+                display: 'flex',
+                alignItems: 'center',
+                paddingLeft: '10px',
+                paddingRight: '25px',
+                justifyContent: 'space-between'
+            }}>
             <Button type="primary" icon={<PlusOutlined />} onClick={() => setVisible(true)}>Add Category</Button>
+            </div>
             <Modal
                 title={editCategoryId ? "Edit Category" : "Add Category"}
                 visible={visible}
@@ -267,8 +277,9 @@ const CategoryManagement: React.FC = () => {
                     </Form.Item>
                 </Form>
             </Modal>
-
+            <div className="table-container">
             <Table columns={columns} dataSource={categories} rowKey="id" />
+            </div>
 
             {/* Subcategories Modal */}
             <Modal

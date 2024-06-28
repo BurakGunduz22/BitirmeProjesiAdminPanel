@@ -12,6 +12,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.table-container {
+  background-color: #f8f9fa; /* Replace with your desired color */
+  min-height: 100vh; /* This will ensure the color fills the entire height of the viewport */
+
+}
 
 .App-header {
   background-color: #282c34;

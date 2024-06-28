@@ -16,7 +16,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
-
+if (typeof window !== 'undefined') {
+    // Enable debug mode for Firebase App Check
+    (window as any).FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+}
 
 
 // Initialize Firebase App Check with reCAPTCHA v3

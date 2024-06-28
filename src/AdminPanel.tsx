@@ -43,7 +43,7 @@ const AdminPanel: React.FC = () => {
                         <Menu.Item key="2" onClick={() => handleSectionChange('items')}>List Items</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub3" icon={<AppstoreOutlined />} title="Categories"> {/* Changed icon and title */}
-                        <Menu.Item key="3" onClick={() => handleSectionChange('categories')}>Manage Categories</Menu.Item> {/* Changed key and label */}
+                        <Menu.Item key="3" onClick={() => handleSectionChange('categories')}>List Categories</Menu.Item> {/* Changed key and label */}
                     </SubMenu>
                 </Menu>
             </Sider>

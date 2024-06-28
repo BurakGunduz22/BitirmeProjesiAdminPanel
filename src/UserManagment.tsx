@@ -3,6 +3,7 @@ import { Table, Button, Modal, Form, Input, message, Select } from 'antd';
 import { collection, doc, getDocs, deleteDoc, updateDoc, addDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from './firebaseConfig';
+import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 
 const { confirm } = Modal;
 const { Option } = Select;
@@ -125,7 +126,7 @@ const UserManagement: React.FC = () => {
                 email,
                 phoneNumber,
                 role: Number(role),
-                authUid: authUser.user?.uid,
+                password
             });
 
             message.success('User added successfully');
@@ -178,8 +179,8 @@ const UserManagement: React.FC = () => {
             key: 'actions',
             render: (text: any, record: any) => (
                 <div className="button-container">
-                    <Button type="primary" onClick={() => handleEditUser(record.id)}>Edit</Button>
-                    <Button type="default" danger onClick={() => showDeleteConfirm(record.id)}>Delete</Button>
+                    <Button type="default" icon={<EditOutlined />} onClick={() => handleEditUser(record.id)}>Edit</Button>
+                    <Button type="default" danger icon={<DeleteOutlined />} onClick={() => showDeleteConfirm(record.id)}>Delete</Button>
                 </div>
             ),
         },
@@ -187,8 +188,20 @@ const UserManagement: React.FC = () => {
 
     return (
         <>
-            <Button type="primary" onClick={handleAddUser}>Add User</Button>
+            <div style={{
+                height: '60px',
+                backgroundColor: '#f8f9fa',
+                display: 'flex',
+                alignItems: 'center',
+                paddingLeft: '10px',
+                paddingRight: '25px',
+                justifyContent: 'space-between'
+            }}>
+            <Button type="primary" icon={<PlusOutlined/>} onClick={handleAddUser}>Add User</Button>
+            </div>
+            <div className="table-container">
             <Table columns={columns} dataSource={users} rowKey="id" />
+            </div>
 
             <Modal
                 title={isEditMode ? "Edit User" : "Add User"}

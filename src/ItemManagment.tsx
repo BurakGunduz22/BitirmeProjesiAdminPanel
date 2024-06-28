@@ -302,7 +302,7 @@ const ItemManagement: React.FC = () => {
                 <div className="button-container">
                     <Button type="default" icon={<EditOutlined />} onClick={() => handleEditItem(record.id)}>Edit</Button>
                     <Button type="dashed" icon={<EyeOutlined />} onClick={() => handlePreviewItem(record.id)}>Preview</Button>
-                    <Button type="primary" danger icon={<DeleteOutlined />} onClick={() => confirmItemDeletion(record.id)}>Delete</Button>
+                    <Button type="default" danger icon={<DeleteOutlined />} onClick={() => confirmItemDeletion(record.id)}>Delete</Button>
                 </div>
             ),
         },
@@ -310,7 +310,9 @@ const ItemManagement: React.FC = () => {
 
     return (
         <>
+            <div className="table-container">
             <Table columns={columns} dataSource={itemsOnSale} rowKey="id" />
+            </div>
 
             <Modal
                 title="Edit Item"
