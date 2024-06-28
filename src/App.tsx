@@ -6,7 +6,7 @@ import AdminPanel from './AdminPanel';
 import logo from './SAFLogo.svg'; // replace 'logo.png' with your actual logo file
 import { Button } from 'antd';
 import { LogoutOutlined,UserOutlined } from '@ant-design/icons';
-import { auth } from './firebaseConfig';
+import { auth,appCheck } from './firebaseConfig';
 import { signOut } from 'firebase/auth';
 import { Avatar } from 'antd';
 
