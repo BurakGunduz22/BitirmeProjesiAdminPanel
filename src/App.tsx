@@ -39,11 +39,11 @@ interface TopBarProps {
     user: any | null;
 }
 
+
 const TopBar: React.FC<TopBarProps> = ({ user }) => {
     const handleLogout = () => {
         signOut(auth)
             .then(() => {
-                // Clear user data from local storage
                 localStorage.removeItem('user');
                 window.location.href = '/login';
             })
@@ -53,26 +53,26 @@ const TopBar: React.FC<TopBarProps> = ({ user }) => {
     };
 
     return (
-        <div style={{
-            height: '60px',
-            backgroundColor: '#f8f9fa',
-            display: 'flex',
-            alignItems: 'center',
-            paddingLeft: '10px',
-            paddingRight: '25px',
-            justifyContent: 'space-between'
-        }}>
-            <img src={logo} alt="Logo" style={{height: '100px'}}/>
+        <div className="top-bar">
+            <img src={logo} alt="Logo" className="logo"/>
             {user && (
-                <div style={{display: 'flex', alignItems: 'center'}}>
-                    <Avatar icon={<UserOutlined/>}/>
-                    <span style={{marginLeft: '10px'}}>{user.email}</span>
-                    <Button type="default" danger icon={<LogoutOutlined/>} onClick={handleLogout}
-                            style={{marginLeft: '20px'}}>Logout</Button>
+                <div className="user-info">
+                    <Avatar icon={<UserOutlined />} />
+                    <span className="user-email">{user.email}</span>
+                    <Button
+                        type="default"
+                        danger
+                        icon={<LogoutOutlined />}
+                        onClick={handleLogout}
+                        className="logout-button"
+                    >       
+                        <span className="logout-text">Logout</span>
+                    </Button>
                 </div>
             )}
         </div>
     );
 };
+
 
 export default App;

@@ -12,10 +12,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.table-container {
-  background-color: #f8f9fa; /* Replace with your desired color */
-  min-height: 100vh; /* This will ensure the color fills the entire height of the viewport */
 
+.table-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
 .App-header {
@@ -41,11 +41,148 @@
     transform: rotate(360deg);
   }
 }
+
 .button-container {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .button-container .ant-btn {
   margin-left: 10px;
 }
+/* CSS for mobile responsiveness */
+.table-container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.ant-table {
+  overflow-x: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.button-container .ant-btn {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .table-container {
+    padding: 5px;
+  }
+
+  .button-container {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .button-container .ant-btn {
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+
+  .ant-modal {
+    width: 95% !important;
+    max-width: none !important;
+  }
+
+  .ant-modal-body {
+    padding: 10px;
+  }
+
+  .ant-form-item {
+    margin-bottom: 10px;
+  }
+
+  .ant-form-item-label > label {
+    font-size: 14px;
+  }
+
+  .ant-input,
+  .ant-select-selector,
+  .ant-picker {
+    font-size: 14px;
+  }
+
+  .ant-form-item-control-input-content > input {
+    font-size: 14px;
+  }
+}
+/* Add these styles to your CSS file */
+/* App.css */
+.top-bar {
+  height: 60px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 25px;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 75px; /* Adjusted for better display */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-email {
+  margin-left: 10px;
+}
+
+.logout-button {
+  margin-left: 20px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .logout-text {
+    display: none;
+  }
+
+  .top-bar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .logo {
+    height: 40px; /* Adjusted for better display on mobile */
+  }
+}
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 20px;
+  }
+
+  .App-logo {
+    height: 30vmin;
+  }
+
+  .button-container {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .button-container .ant-btn {
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+}
+
