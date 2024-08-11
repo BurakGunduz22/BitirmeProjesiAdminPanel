@@ -5,12 +5,12 @@ import {initializeAppCheck, ReCaptchaV3Provider} from 'firebase/app-check';
 import {getStorage} from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyANo22SRYx2Icux7NRE_AX3cOByIKCgTwk",
+    apiKey: "apiKey",
     authDomain: "bitirmeproje-ad56d.firebaseapp.com",
     projectId: "bitirmeproje-ad56d",
     storageBucket: "bitirmeproje-ad56d.appspot.com",
-    messagingSenderId: "129861234415",
-    appId: "1:129861234415:web:3da3ab2d890f919721351a"
+    messagingSenderId: "messagingSenderId",
+    appId: "1:appId:web:appId"
 };
 
 const app = initializeApp(firebaseConfig);
