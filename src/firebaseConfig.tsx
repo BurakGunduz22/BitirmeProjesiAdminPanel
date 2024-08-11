@@ -21,7 +21,7 @@ const storage = getStorage(app);
 
 // Initialize Firebase App Check with reCAPTCHA v3
 const appCheck = initializeAppCheck(app, {
-    provider: new ReCaptchaV3Provider('6Le8ov8pAAAAAMp6F4KxalM5tSJtjGunjY1dR3q6'),
+    provider: new ReCaptchaV3Provider('ReCaptchaV3Provider'),
     isTokenAutoRefreshEnabled: true
 });
 
